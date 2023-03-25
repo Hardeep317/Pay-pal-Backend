@@ -22,31 +22,31 @@ app.post("/register", register);
 app.post("/login", login);
 
 // Middleware to verify Users API request by velitate authorization token
-app.use((req, res, next) => {
-    let token = req.headers.authorization;
-    try {
-      let verifiedToken = verifytoken(token);
-      if (verifiedToken) {
-        next();
-      } else {
-        res.status(401).send({
-          responseStatus: "FAILED",
-          error: "Unauthorized User",
-          data: null,
-          request: "OK",
-          message: "",
-        });
-      }
-    } catch {
-      res.status(401).send({
-        responseStatus: "FAILED",
-        error: "Unauthorized User",
-        data: null,
-        request: "OK",
-        message: "",
-      });
-    }
-  });
+// app.use((req, res, next) => {
+//     let token = req.headers.authorization;
+//     try {
+//       let verifiedToken = verifytoken(token);
+//       if (verifiedToken) {
+//         next();
+//       } else {
+//         res.status(401).send({
+//           responseStatus: "FAILED",
+//           error: "Unauthorized User",
+//           data: null,
+//           request: "OK",
+//           message: "",
+//         });
+//       }
+//     } catch {
+//       res.status(401).send({
+//         responseStatus: "FAILED",
+//         error: "Unauthorized User",
+//         data: null,
+//         request: "OK",
+//         message: "",
+//       });
+//     }
+//   });
 
 
 app.post("/addSprint", addItem);
